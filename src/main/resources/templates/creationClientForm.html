@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Creation client</title>
+</head>
+<body>
+    <h1>page de creation d'un client</h1>
+    <form action="#" th:action="@{/client/creer}" th:object="${client}" method="POST">
+        <label>Nom</label>
+        <input type="text" th:field="*{nom}"/><br/>
+        <label>Prenom</label>
+        <input type="text" th:field="*{prenom}"/><br/>
+        <br/>
+        <label>Email</label>
+        <input type="text" th:field="*{email}"/><br/>
+        <br/>
+        <label>identifiant</label>
+        <input type="text" th:field="*{identifiant}"/><br/>
+        <br/>
+        <label>Mots de passe</label>
+        <input type="text" th:field="*{password}"/><br/>
+        <br/>
+        <input type="submit" value="Valider"/> <input type="reset" value="Annuler"/> <br/>
+    </form>
+</body>
+
+</html>

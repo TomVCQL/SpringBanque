@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Creation compte</title>
+</head>
+<body>
+    <h1>page de creation d'un compte</h1>
+    <form action="#" th:action="@{/compte/creer}" th:object="${compte}" method="POST">
+        <label>numero de compte :</label>
+        <input type="text" th:field="*{numero}" minlength="9" maxlength="9"/><br/>
+        <label>Le client :</label>
+        <select th:field="*{client}">
+            <option th:each="client : ${clients}" th:if="${client.id}==${client.id}" th:value="${client.id}" th:text="${client.nom}+' '+${client.prenom}"></option>
+        </select>
+        <button type="submit">Creer</button>
+    </form>
+</body>
+
+</html>

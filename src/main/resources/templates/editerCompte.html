@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>edition compte</title>
+</head>
+<body>
+    <h1>page d'edition d'un compte</h1>
+    <form action="#" th:action="@{/compte/editer}" th:object="${compte}" method="POST">
+        <input type="text" th:field="*{id}" readonly/><br/>
+        <label>numero</label>
+        <input type="text" th:field="*{numero}" minlength="9" maxlength="9"/><br/>
+        <label>Decouvert</label>
+        <input type="text" th:field="*{decouvert}"/><br/>
+        <input type="hidden" th:field="*{solde}"/>
+        <label>Client</label>
+        <input type="text" th:field="*{client}" readonly/>
+        <br/>
+        <input type="submit" value="Valider"/> <input type="reset" value="Annuler"/> <br/>
+    </form>
+</body>
+
+</html>

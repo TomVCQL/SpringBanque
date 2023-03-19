@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>edition client</title>
+</head>
+<body>
+    <h1>page d'edition d'un client</h1>
+    <form action="#" th:action="@{/client/editer}" th:object="${client}" method="POST">
+        <input type="hidden" th:field="*{id}"/><br/>
+        <label>Nom</label>
+        <input type="text" th:field="*{nom}"/><br/>
+        <label>Prenom</label>
+        <input type="text" th:field="*{prenom}"/><br/>
+        <br/>
+        <label>identifiant</label>
+        <input type="text" th:field="*{identifiant}"/><br/>
+        <br/>
+        <input type="submit" value="Valider"/> <input type="reset" value="Annuler"/> <br/>
+    </form>
+</body>
+
+</html>

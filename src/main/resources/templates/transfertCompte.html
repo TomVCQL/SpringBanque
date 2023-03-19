@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>transfert Argent compte</title>
+</head>
+<body>
+    <h1 th:text="'transfert sur les comptes de '+${client.Prenom}+ ' ' +${client.Nom}"></h1>
+    <form action="#" th:action="@{/compte/transfert}" th:object="${compte}" method="POST">
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{client}"/>
+        <input type="hidden" th:field="*{solde}"/>
+        <input type="hidden" th:field="*{decouvert}"/>
+        <label>Depuis :</label>
+        <input  type="text" th:field="*{numero}" readonly>
+        <br>
+        <label>Vers :</label>
+        <select th:field="*{beneficiaire}">
+            <option th:each="compte : ${comptes}" th:if="${compte.id}!=${id}" th:value="${compte.id}" th:text="${compte.numero}"></option>
+        </select>
+        <br>
+        <input type="text" th:field="*{newSolde}">
+        <br>
+        <input type="submit" value="Valider"/> <input type="reset" value="Annuler"/> <br/>
+    </form>
+</body>
+
+</html>

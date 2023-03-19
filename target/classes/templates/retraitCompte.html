@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>retrait compte</title>
+</head>
+<body>
+    <h1 th:text="'Retrait sur le compte n° '+${compte.numero}+' de '+${client.Prenom}+ ' ' +${client.Nom}"></h1>
+    <form action="#" th:action="@{/compte/retrait}" th:object="${compte}" method="POST">
+        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{numero}"/>
+        <input type="hidden" th:field="*{client}"/>
+        <input type="hidden" th:field="*{solde}"/>
+        <input type="hidden" th:field="*{decouvert}"/>        <input type="hidden" th:field="*{decouvert}"/>
+        <label>Solde du compte :</label><label th:text="${compte.solde}"></label><br/>
+        Solde à retirer :
+        <input type="text" th:field="*{newSolde}"/><br/>
+        <input type="submit" value="Valider"/> <input type="reset" value="Annuler"/> <br/>
+    </form>
+</body>
+
+</html>
